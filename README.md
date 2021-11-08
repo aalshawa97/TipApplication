@@ -1,0 +1,2 @@
+# Tippy
+ Tip calculator
