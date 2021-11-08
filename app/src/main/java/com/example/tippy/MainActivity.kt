@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                 // TODO Auto-generated method stub
                 Log.i(TAG, "onProgressChanged $progress")
                 tipPercent.text = "$progress%"
+                updateTipDescription(progress)
                 computeTipAndTotal()
             }
         })
@@ -54,6 +55,19 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private  fun updateTipDescription(tipPercent : Int){
+        var tipDescription : String
+        when(tipPercent){
+            in 0..9 -> tipDescription = "Poor"
+            in 10..14 -> tipDescription = "Acceptable"
+            in 15..19 -> tipDescription = "Great"
+            in 20..30 -> tipDescription = "Excellent!"
+            else -> tipDescription = "Amazing!"
+        }
+        val tvTipDescription = findViewById<TextView>(R.id.tvAcceptable)
+        tvTipDescription.text = tipDescription
     }
 
     private fun computeTipAndTotal(){
