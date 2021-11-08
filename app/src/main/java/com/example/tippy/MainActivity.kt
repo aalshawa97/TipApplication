@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         val tvTipDescription = findViewById<TextView>(R.id.tvAcceptable)
         tvTipDescription.text = tipDescription
         val color = ArgbEvaluator().evaluate(tipPercent.toFloat()/ seekBar.max,ContextCompat.getColor(this,R.color.worstTip),ContextCompat.getColor(this,R.color.bestTip))
+        //tvTipDescription.setTextColor(color)
     }
 
     private fun computeTipAndTotal(){
