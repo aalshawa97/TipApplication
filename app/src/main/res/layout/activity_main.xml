@@ -103,5 +103,18 @@
         app:layout_constraintStart_toStartOf="@+id/etBase"
         app:layout_constraintTop_toTopOf="@+id/etBase" />
 
+    <TextView
+        android:id="@+id/tvFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Made with love by Abdullah"
+        android:textAllCaps="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvBaseTotal"
+        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBaseLabel" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
