@@ -11,6 +11,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.text.isDigitsOnly
 
 private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
@@ -70,8 +71,12 @@ class MainActivity : AppCompatActivity() {
         }
         val tvTipDescription = findViewById<TextView>(R.id.tvAcceptable)
         tvTipDescription.text = tipDescription
-        val color = ArgbEvaluator().evaluate(tipPercent.toFloat()/ seekBar.max,ContextCompat.getColor(this,R.color.worstTip),ContextCompat.getColor(this,R.color.bestTip))
-        //tvTipDescription.setTextColor(color)
+        val color = ArgbEvaluator().evaluate(
+            tipPercent.toFloat() / seekBar.max,
+            ContextCompat.getColor(this, R.color.worstTip),
+            ContextCompat.getColor(this, R.color.bestTip)
+        ) as Int
+        tvTipDescription.setTextColor(color)
     }
 
     private fun computeTipAndTotal(){
@@ -79,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         val tvBaseTotal = findViewById<TextView>(R.id.tvBaseTotal)
 
         //Get the value of the base and tip percent
-        if(etBase.text.toString().isNullOrEmpty())
+        if(etBase.text.toString().isNullOrEmpty() ||!etBase.text.toString().isDigitsOnly())
         {
             tvTipAmount.text = ""
             tvBaseTotal.text = ""
