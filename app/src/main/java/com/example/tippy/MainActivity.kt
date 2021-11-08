@@ -57,14 +57,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun computeTipAndTotal(){
+        val tvTipAmount : TextView = findViewById(R.id.tvTipTotal)
+        val tvBaseTotal = findViewById<TextView>(R.id.tvBaseTotal)
+
         //Get the value of the base and tip percent
+        if(etBase.text.toString().isNullOrEmpty())
+        {
+            tvTipAmount.text = ""
+            tvBaseTotal.text = ""
+            return
+        }
         val baseAmount = etBase.text.toString().toDouble()
         val tipPercent = seekBar.progress
         val tipAmount = baseAmount * tipPercent / 100
         val totalAmount = baseAmount + tipAmount
-        val tvTipAmount : TextView = findViewById(R.id.tvTipTotal)
         tvTipAmount.text = tipAmount.toString()
-        val tvBaseTotal = findViewById<TextView>(R.id.tvBaseTotal)
         tvBaseTotal.text = totalAmount.toString()
     }
 }
