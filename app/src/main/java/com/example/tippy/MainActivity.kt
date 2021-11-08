@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         val tipPercent = seekBar.progress
         val tipAmount = baseAmount * tipPercent / 100
         val totalAmount = baseAmount + tipAmount
-        tvTipAmount.text = tipAmount.toString()
-        tvBaseTotal.text = totalAmount.toString()
+        tvTipAmount.text = "%.2f".format(tipAmount)
+        tvBaseTotal.text = "%.2f".format(totalAmount)
     }
 }
