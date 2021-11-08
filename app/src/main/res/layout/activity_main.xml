@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvTipTotal"
+        android:id="@+id/tvTipTotalLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="45dp"
         android:text="@string/tipTotal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
@@ -32,12 +32,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="103dp"
         android:text="@string/tipPercent"
-        app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
-        app:layout_constraintStart_toStartOf="@+id/tvBaseLabel"
+        app:layout_constraintEnd_toEndOf="@+id/etBaseLabel"
+        app:layout_constraintStart_toStartOf="@+id/etBaseLabel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvBaseLabel"
+        android:id="@+id/etBaseLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
@@ -50,63 +50,58 @@
         android:id="@+id/etBase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="80dp"
         android:autofillHints="Base cost"
         android:ems="8"
         android:hint="@string/baseCost"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="@+id/etTipTotal"
-        app:layout_constraintStart_toStartOf="@+id/etTipTotal"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/etTipTotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="12dp"
-        android:autofillHints="Base cost"
-        android:ems="8"
-        android:hint="@string/baseCost"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/etBaseTotal"
-        app:layout_constraintEnd_toEndOf="@+id/etBaseTotal"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/etBaseTotal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
-        android:layout_marginEnd="63dp"
-        android:autofillHints="Base cost"
-        android:ems="8"
-        android:hint="@string/baseCost"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:minHeight="48dp"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
+    <TextView
+        android:id="@+id/tvTipTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="35dp"
+        android:autofillHints="Base cost"
+        android:ems="8"
+        android:hint="@string/baseCost"
+        android:minHeight="48dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/tvTipTotalLabel"
+        app:layout_constraintStart_toStartOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipPercent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/tvBaseTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:autofillHints="Base cost"
+        android:ems="8"
+        android:hint="@string/baseCost"
+        android:minHeight="48dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@+id/tvTipTotal"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipTotal"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="54dp"
+        android:layout_width="135dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginBottom="53dp"
         android:max="30"
-        app:layout_constraintBottom_toTopOf="@+id/etBaseTotal"
-        app:layout_constraintEnd_toEndOf="@+id/etTipTotal"
-        app:layout_constraintStart_toStartOf="@+id/etTipTotal"
-        app:layout_constraintTop_toBottomOf="@+id/tvBaseLabel" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvTipTotal"
+        app:layout_constraintStart_toStartOf="@+id/etBase"
+        app:layout_constraintTop_toTopOf="@+id/etBase" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
