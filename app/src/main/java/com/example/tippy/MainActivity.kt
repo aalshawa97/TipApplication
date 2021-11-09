@@ -15,10 +15,10 @@ import androidx.core.text.isDigitsOnly
 
 private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
-private lateinit var etBase : EditText
-private lateinit var seekBar : SeekBar
-
 class MainActivity : AppCompatActivity() {
+    private lateinit var etBase : EditText
+    private lateinit var seekBar : SeekBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private  fun updateTipDescription(tipPercent : Int){
-        var tipDescription : String
+        val tipDescription : String
         when(tipPercent){
             in 0..9 -> tipDescription = "Poor"
             in 10..14 -> tipDescription = "Acceptable"
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
         val tvBaseTotal = findViewById<TextView>(R.id.tvBaseTotal)
 
         //Get the value of the base and tip percent
-        if(etBase.text.toString().isNullOrEmpty() ||!etBase.text.toString().isDigitsOnly())
+        if(etBase.text.toString().isEmpty() ||!etBase.text.toString().isDigitsOnly())
         {
             tvTipAmount.text = ""
             tvBaseTotal.text = ""
