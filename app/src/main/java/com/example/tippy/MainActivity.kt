@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 // TODO Auto-generated method stub
-                Log.i(TAG, "onProgressChanged $progress")
-                tipPercent.text = "$progress%"
+                val i = "$progress%"
+                tipPercent.text = i
                 updateTipDescription(progress)
                 computeTipAndTotal()
             }
@@ -62,12 +62,12 @@ class MainActivity : AppCompatActivity() {
 
     private  fun updateTipDescription(tipPercent : Int){
         val tipDescription : String
-        when(tipPercent){
-            in 0..9 -> tipDescription = "Poor"
-            in 10..14 -> tipDescription = "Acceptable"
-            in 15..19 -> tipDescription = "Great"
-            in 20..30 -> tipDescription = "Excellent!"
-            else -> tipDescription = "Amazing!"
+        tipDescription = when(tipPercent){
+            in 0..9 -> "Poor"
+            in 10..14 -> "Acceptable"
+            in 15..19 -> "Great"
+            in 20..30 -> "Excellent!"
+            else -> "Amazing!"
         }
         val tvTipDescription = findViewById<TextView>(R.id.tvAcceptable)
         tvTipDescription.text = tipDescription
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         val tipPercent = seekBar.progress
         val tipAmount = baseAmount * tipPercent / 100
         val totalAmount = baseAmount + tipAmount
-        tvTipAmount.text = "%.2f".format(tipAmount)
-        tvBaseTotal.text = "%.2f".format(totalAmount)
+        tvTipAmount.text = getString(R.string.twoDecimalPercision).format(tipAmount)
+        tvBaseTotal.text = getString(R.string.twoDecimalPercision).format(totalAmount)
     }
 }
